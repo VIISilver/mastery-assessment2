@@ -1,0 +1,26 @@
+.header {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1em;
+    flex-wrap: wrap;
+    background: linear-gradient(#006494, #247ba0);
+    text-decoration-color: white;
+}
+
+.mini {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    flex-wrap: wrap;
+    padding-right: 2vw;
+}
+
+.htext {
+    margin-left: 2vw;
+}
+
+.mini h4 {
+    margin-right: 2vw;
+}
