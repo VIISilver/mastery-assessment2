@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAnimals, buttonMessage } from './../../ducks/reducer';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
+import './Browsing.css';
 
 class Browsing extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Browsing extends Component {
             animalInfo: '',
             buttonMessage: 'Local State'
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -24,7 +26,12 @@ class Browsing extends Component {
         })
     }
 
+    handleChange(prop, val) {
+        this.setState({ [prop]: val });
+    }
+
     render() {
+        const { animalInfo } = this.state;
         const animals = this.props.animals;
         const animalList = animals.map((animal, i) => {
             return (
@@ -36,14 +43,15 @@ class Browsing extends Component {
             )
         })
         return (
-            <div >
+            <div>
                 <Header />
-                <h1>{this.state.buttonMessage}</h1>
-                <button onClick={this.props.buttonMessage}>Fun</button>
-                <Link to='/details'>
-                    <h1>Browsing</h1>
-                </Link>
-                {animalList}
+                <div id='browMain'>
+                    <h1>{this.state.buttonMessage}</h1>
+                    <button onClick={this.props.buttonMessage}>Fun</button>
+                    <div><p>User Name:</p><input value={animalInfo} onChange={(e) => this.handleChange('animalInfo', e.target.value)}/></div>
+                    <h1>List of Animals</h1>
+                    {animalList}
+                </div>
             </div>
         );
     }

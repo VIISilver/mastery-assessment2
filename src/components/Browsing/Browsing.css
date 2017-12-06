@@ -1,0 +1,12 @@
+#browMain {
+    padding-left: 120px;
+}
+
+.eachAnimal {
+    border: 2px solid #1b98e0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 120px;
+    padding: 12px;
+}
