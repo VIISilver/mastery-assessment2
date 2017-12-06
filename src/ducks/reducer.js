@@ -27,5 +27,7 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_ANIMALS + FULFILLED:
             return Object.assign({}, state, { animals: action.payload })
+
+        default: return state;
     }
 }
