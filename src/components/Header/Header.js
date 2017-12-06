@@ -8,7 +8,7 @@ function Header() {
             <h4 className='htext'>So Many Animals</h4>
             <div className='mini'>
                 <Link to='/'>
-                    <h4>Home</h4>
+                    <h4>Login</h4>
                 </Link>
                 <Link to='browsing'>
                     <h4>Browsing</h4>

@@ -4,6 +4,7 @@ import { getAnimals, buttonMessage } from './../../ducks/reducer';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import './Browsing.css';
+import Favorite from '../Favorite/Favorite';
 
 class Browsing extends Component {
     constructor(props) {
@@ -32,25 +33,15 @@ class Browsing extends Component {
 
     render() {
         const { animalInfo } = this.state;
-        const animals = this.props.animals;
-        const animalList = animals.map((animal, i) => {
-            return (
-                <div className='eachAnimal' key={i}>
-                    <p>Animal Name:</p><p>{animal.genus}</p>
-                    <p>Species:</p><p>{animal.species}</p>
-                    <p>Description:</p><p>{animal.description}</p>
-                </div>
-            )
-        })
         return (
             <div>
                 <Header />
                 <div id='browMain'>
                     <h1>{this.state.buttonMessage}</h1>
                     <button onClick={this.props.buttonMessage}>Fun</button>
-                    <div><p>User Name:</p><input value={animalInfo} onChange={(e) => this.handleChange('animalInfo', e.target.value)}/></div>
+                    <div><p>User Name:</p><input value={animalInfo} onChange={(e) => this.handleChange('animalInfo', e.target.value)} /></div>
                     <h1>List of Animals</h1>
-                    {animalList}
+                    <Favorite animals={this.props.animals} />
                 </div>
             </div>
         );
