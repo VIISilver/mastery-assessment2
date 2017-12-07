@@ -3,7 +3,19 @@ import axios from 'axios';
 // INITIAL STATE
 const initialState = {
     animals: [{}],
-    message: 'Not Fun'
+    message: 'Not Fun',
+    employees: [
+        { number: 1, name: "Ben", position: "HR" },
+        { number: 2, name: "Dave", position: "IT" },
+        { number: 3, name: "Sam", position: "HR" },
+        { number: 4, name: "Matt", position: "Accounting" },
+        { number: 5, name: "William", position: "Operations" },
+        { number: 6, name: "Fillipe", position: "Finance" }
+    ],
+    get: function (id) {
+        const isEmployee = p => p.number === id
+        return this.employees.find(isEmployee)
+    }
 }
 
 // CONSTANTS THAT REPRESENT ACTIONS
